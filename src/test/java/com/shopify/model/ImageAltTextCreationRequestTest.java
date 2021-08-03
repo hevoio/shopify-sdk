@@ -6,10 +6,12 @@ import java.util.List;
 
 import org.junit.Test;
 
+
 public class ImageAltTextCreationRequestTest {
 
 	@Test
 	public void givenSomeImageAltTextWhenBuildingMetafieldsThenExpectCorrectMetafields() {
+
 		final String expectedImageAltText = "banana";
 		final List<Metafield> actualMetafields = ImageAltTextCreationRequest.newBuilder()
 				.withImageAltText(expectedImageAltText).build();
