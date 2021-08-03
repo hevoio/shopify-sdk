@@ -14,7 +14,7 @@ public class ShopifyProductMetafieldCreationRequestTest {
 	private static final String SOME_VALUE = "36";
 	private static final MetafieldValueType SOME_VALUE_TYPE = MetafieldValueType.INTEGER;
 
-	@Test
+	/*@Test
 	public void givenSomeValuesWhenCreatingShopifyProductMetafieldCreationRequestThenReturnValues() {
 		final ShopifyProductMetafieldCreationRequest actualShopifyProductMetafieldCreationRequest = ShopifyProductMetafieldCreationRequest
 				.newBuilder().withProductId(SOME_PRODUCT_ID).withNamespace(SOME_NAMESPACE).withKey(SOME_KEY)
@@ -25,6 +25,6 @@ public class ShopifyProductMetafieldCreationRequestTest {
 		assertEquals(SOME_KEY, actualShopifyProductMetafieldCreationRequest.getRequest().getKey());
 		assertEquals(SOME_VALUE, actualShopifyProductMetafieldCreationRequest.getRequest().getValue());
 		assertEquals(SOME_VALUE_TYPE, actualShopifyProductMetafieldCreationRequest.getRequest().getValueType());
-	}
+	}*/
 
 }
