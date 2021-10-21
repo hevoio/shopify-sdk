@@ -1552,7 +1552,9 @@ public class ShopifySdk {
 	private boolean isMetafieldResource(final String resource) {
 		return resource.toLowerCase().equals(COLLECTIONS) ||
 				resource.toLowerCase().equals(CUSTOMERS) ||
-				resource.toLowerCase().equals(DRAFT_ORDERS);
+				resource.toLowerCase().equals(DRAFT_ORDERS) ||
+				resource.toLowerCase().equals(PRODUCTS) ||
+				resource.toLowerCase().equals(ORDERS);
 
 	}
 
