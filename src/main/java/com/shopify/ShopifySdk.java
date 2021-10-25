@@ -62,6 +62,7 @@ public class ShopifySdk {
 	static final String ACCESS_TOKEN = "access_token";
 	static final String VERSION_2020_04 = "api/2020-04";
 	static final String VERSION_2020_10 = "api/2020-10";
+	static final String VERSION_2021_10 = "api/2021-10";
 	static final String PRODUCTS = "products";
 	static final String INVENTORY_LEVELS = "inventory_levels";
 	static final String INVENTORY_ITEMS = "inventory_items";
@@ -1062,7 +1063,7 @@ public class ShopifySdk {
 
 	public MetafieldsRoot getResourceMetafields(final String resourceId, final String resource) {
 		if (isMetafieldResource(resource)) {
-			final Response response = get(getWebTarget().path(resource.toLowerCase()).path(resourceId).path(METAFIELDS));
+			final Response response = get(getWebTarget().path(VERSION_2021_10).path(resource.toLowerCase()).path(resourceId).path(METAFIELDS));
 			return response.readEntity(MetafieldsRoot.class);
 		}
 		return null;
@@ -1506,7 +1507,7 @@ public class ShopifySdk {
 	}
 
 	private WebTarget buildShopMetafieldsEndpoint() {
-		return getWebTarget().path(METAFIELDS);
+		return getWebTarget().path(VERSION_2021_10).path(METAFIELDS);
 	}
 
 	private WebTarget buildPriceRulesEndpoint() {
