@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -47,8 +48,8 @@ public class ShopifyLineItem {
 	@XmlElement(name = "fulfillment_service")
 	private String fulfillmentService;
 	private boolean custom;
-	@XmlElement(name = "applied_discount")
-	private AppliedDiscountCode appliedDiscountCode;
+	@XmlElement(name = "applied_discounts")
+	private List<AppliedDiscountCode> appliedDiscountCode;
 	private List<ShopifyProperty> properties;
 	@XmlElement(name = "tax_lines")
 	private List<ShopifyTaxLine> taxLines;
@@ -63,4 +64,28 @@ public class ShopifyLineItem {
 	private List<ShopifyDuty> duties;
 	@XmlElement(name = "product_exists")
 	private boolean productExists;
+
+	private String key;
+	@XmlElement(name = "destination_location_id")
+	private String destinationLocationId;
+	@XmlElement(name = "origin_location_id")
+	private String originLocationId;
+	@XmlElement(name = "presentment_variant_title")
+	private String presentmentVariantTitle;
+	@XmlElement(name = "presentment_title")
+	private String presentmentTitle;
+	@XmlElement(name = "variant_price")
+	private BigDecimal variantPrice;
+	@XmlElement(name = "user_id")
+	private String userId;
+	@XmlElement(name = "unit_price_measurement")
+	private Map<String, Object> unitPriceMeasurement;
+	private String rank;
+	@XmlElement(name = "compare_at_price")
+	private BigDecimal compareAtPrice;
+	@XmlElement(name = "line_price")
+	private BigDecimal linePrice;
+	@XmlElement(name = "admin_graphql_api_id")
+	private String adminGraphqlApiId;
+
 }
