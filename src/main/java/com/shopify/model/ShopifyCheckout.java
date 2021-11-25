@@ -79,7 +79,7 @@ public class ShopifyCheckout {
 	@XmlElement(name = "total_duties")
 	private BigDecimal totalDuties;
 	@XmlElement(name = "total_line_items_price")
-	private BigDecimal totaLineItemsPrice;
+	private BigDecimal totalLineItemsPrice;
 	@XmlElement(name = "total_price")
 	private BigDecimal totalPrice;
 	@XmlElement(name = "total_tax")
@@ -281,12 +281,12 @@ public class ShopifyCheckout {
 		this.totalDuties = totalDuties;
 	}
 
-	public BigDecimal getTotaLineItemsPrice() {
-		return totaLineItemsPrice;
+	public BigDecimal getTotalLineItemsPrice() {
+		return totalLineItemsPrice;
 	}
 
-	public void setTotaLineItemsPrice(final BigDecimal totaLineItemsPrice) {
-		this.totaLineItemsPrice = totaLineItemsPrice;
+	public void setTotalLineItemsPrice(final BigDecimal totalLineItemsPrice) {
+		this.totalLineItemsPrice = totalLineItemsPrice;
 	}
 
 	public String getCartToken() {
@@ -389,7 +389,7 @@ public class ShopifyCheckout {
 		return shopifyDiscountCodes;
 	}
 
-	public void setShopifyDiscountCodes(final List<ShopifyDiscountCode> shippingLines) {
+	public void setShopifyDiscountCodes(List<ShopifyDiscountCode> shopifyDiscountCodes) {
 		this.shopifyDiscountCodes = shopifyDiscountCodes;
 	}
 
