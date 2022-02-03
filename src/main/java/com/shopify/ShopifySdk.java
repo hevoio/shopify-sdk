@@ -1321,10 +1321,6 @@ public class ShopifySdk {
 		return mapPagedResponse(shopifyCustomerSavedSearchesRoot.getCustomerSavedSearches(), response);
 	}
 
-//	private int getCustomerSavedSearchesCount(){
-//
-//	}
-
 	private ShopifyRefund calculateRefund(final ShopifyRefundCreationRequest shopifyRefundCreationRequest) {
 		final ShopifyRefundRoot shopifyRefundRoot = new ShopifyRefundRoot();
 
