@@ -1011,9 +1011,8 @@ public class ShopifySdk {
 		return getCustomerSavedSearches(response);
 	}
 
-	public int getCustomerSavedSearchesCount(final String pageInfo) {
-		final Response response = get(getWebTarget().path(CUSTOMER_SAVED_SEARCHES).path(COUNT)
-				.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo));
+	public int getCustomerSavedSearchesCount() {
+		final Response response = get(getWebTarget().path(CUSTOMER_SAVED_SEARCHES).path(COUNT));
 		final Count count = response.readEntity(Count.class);
 		return count.getCount();
 	}
