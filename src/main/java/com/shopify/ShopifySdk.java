@@ -54,6 +54,7 @@ public class ShopifySdk {
 	static final String OAUTH = "oauth";
 	static final String REVOKE = "revoke";
 	static final String ACCESS_TOKEN = "access_token";
+	static final String ACCESS_SCOPES = "access_scopes";
 	static final String VERSION_2020_04 = "api/2020-04";
 	static final String VERSION_2020_10 = "api/2020-10";
 	static final String VERSION_2021_10 = "api/2021-10";
@@ -641,6 +642,11 @@ public class ShopifySdk {
 	public ShopifyShop getShop() {
 		final Response response = get(getWebTarget().path(SHOP));
 		return response.readEntity(ShopifyShop.class);
+	}
+
+	public ShopifyAccessScope getShopAccessScope(){
+		final Response response = get(getWebTarget().path(OAUTH).path(ACCESS_SCOPES));
+		return response.readEntity(ShopifyAccessScope.class);
 	}
 
 	public ShopifyProduct createProduct(final ShopifyProductCreationRequest shopifyProductCreationRequest) {
