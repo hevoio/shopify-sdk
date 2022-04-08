@@ -1678,13 +1678,15 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyEvent> getShopifyEvents(DateTime fromDate, DateTime toDate, Integer pageSize, String pageInfo, String shopifyObject, String verb) {
-		final WebTarget webTarget = getWebTarget().path(EVENTS + JSON)
+		WebTarget webTarget = getWebTarget().path(EVENTS + JSON)
 				.queryParam(LIMIT_QUERY_PARAMETER, pageSize)
-				.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo)
-				.queryParam(CREATED_AT_MIN_QUERY_PARAMETER, fromDate)
-				.queryParam(CREATED_AT_MAX_QUERY_PARAMETER, toDate)
-				.queryParam(FILTER, shopifyObject)
-				.queryParam(VERB, verb);
+				.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
+		if (Strings.isNullOrEmpty(pageInfo)) {
+			webTarget = webTarget.queryParam(CREATED_AT_MIN_QUERY_PARAMETER, fromDate)
+					.queryParam(CREATED_AT_MAX_QUERY_PARAMETER, toDate)
+					.queryParam(FILTER, shopifyObject)
+					.queryParam(VERB, verb);
+		}
 
 		final Response response = get(webTarget);
 
