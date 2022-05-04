@@ -97,6 +97,10 @@ public class ShopifyLineItem {
 	private BigDecimal linePrice;
 	@XmlElement(name = "admin_graphql_api_id")
 	private String adminGraphqlApiId;
+	@XmlElement(name = "pre_tax_price")
+	private BigDecimal preTaxPrice;
+	@XmlElement(name = "pre_tax_price_set")
+	private PriceSet preTaxPriceSet;
 
 
 	public static class ShopifyPropertyDeserializer extends JsonDeserializer<List<ShopifyProperty>> {
