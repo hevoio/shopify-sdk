@@ -19,7 +19,7 @@ public class ShopifyTaxLine {
 	@XmlElement(name = "price_set")
 	private PriceSet priceSet;
 
-	private long position;
+	private Long position;
 	private String source;
 	@XmlElement(name = "compare_at")
 	private BigDecimal compareAt;
