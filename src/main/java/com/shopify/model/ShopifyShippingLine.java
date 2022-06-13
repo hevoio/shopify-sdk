@@ -47,7 +47,7 @@ public class ShopifyShippingLine {
 	@XmlElement(name = "validation_context")
 	private String validationContext;
 	@XmlElement(name = "custom_tax_lines")
-	private String customTaxLines;
+	private List<ShopifyTaxLine> customTaxLines;
 	private BigDecimal markup;
 	@XmlElement(name = "delivery_category")
 	private String deliveryCategory;
