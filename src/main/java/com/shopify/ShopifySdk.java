@@ -163,7 +163,9 @@ public class ShopifySdk {
 
 	private static final String EVENTS = "events";
 	private static final String VERB = "verb";
-	private static final String PRODUCT = "product";
+	private static final String PRODUCT = "Product";
+	private static final String COLLECTION = "Collection";
+	private static final String PRICE_RULE = "PriceRule";
 	private static final String DELETED_VERB = "destroy";
 	private static final String FILTER = "filter";
 
@@ -1702,11 +1704,11 @@ public class ShopifySdk {
 		return getDeletedEvents(fromDate, toDate, pageSize, pageInfo, PRODUCT);
 	}
 
-	public ShopifyPage<ShopifyEvent> getDeletedCustomCollections(DateTime fromDate, DateTime toDate, Integer pageSize, String pageInfo) {
-		return getDeletedEvents(fromDate, toDate, pageSize, pageInfo, PRODUCT);
+	public ShopifyPage<ShopifyEvent> getDeletedCollections(DateTime fromDate, DateTime toDate, Integer pageSize, String pageInfo) {
+		return getDeletedEvents(fromDate, toDate, pageSize, pageInfo, COLLECTION);
 	}
 
-	public ShopifyPage<ShopifyEvent> getDeletedSmartCollections(DateTime fromDate, DateTime toDate, Integer pageSize, String pageInfo) {
-		return getDeletedEvents(fromDate, toDate, pageSize, pageInfo, PRODUCT);
+	public ShopifyPage<ShopifyEvent> getDeletedPriceRules(DateTime fromDate, DateTime toDate, Integer pageSize, String pageInfo) {
+		return getDeletedEvents(fromDate, toDate, pageSize, pageInfo, PRICE_RULE);
 	}
 }
