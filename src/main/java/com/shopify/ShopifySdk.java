@@ -54,9 +54,6 @@ public class ShopifySdk {
 	static final String OAUTH = "oauth";
 	static final String REVOKE = "revoke";
 	static final String ACCESS_TOKEN = "access_token";
-	static final String VERSION_2020_04 = "api/2020-04";
-	static final String VERSION_2020_10 = "api/2020-10";
-	static final String VERSION_2021_10 = "api/2021-10";
 	static final String PRODUCTS = "products";
 	static final String INVENTORY_LEVELS = "inventory_levels";
 	static final String INVENTORY_ITEMS = "inventory_items";
@@ -1151,7 +1148,7 @@ public class ShopifySdk {
 
 	public ShopifyPage<Metafield> getResourceMetafields(final String resourceId, final String resource, final int pageSize, final String pageInfo) {
 		if (isMetafieldResource(resource)) {
-			WebTarget webTarget = getWebTarget().path(VERSION_2021_10).path(resource.toLowerCase()).path(resourceId).path(METAFIELDS).queryParam(LIMIT_QUERY_PARAMETER, pageSize);
+			WebTarget webTarget = getWebTarget().path(resource.toLowerCase()).path(resourceId).path(METAFIELDS).queryParam(LIMIT_QUERY_PARAMETER, pageSize);
 			if (!Strings.isNullOrEmpty(pageInfo)) {
 				webTarget = webTarget.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 			}
@@ -1205,8 +1202,7 @@ public class ShopifySdk {
 
 	public ShopifyPage<ShopifyDiscountCode> getDiscountCodes(final String priceRuleId,
 													   final int pageSize, final String pageInfo) {
-		WebTarget webTarget = getWebTarget().path(VERSION_2020_10)
-				.path(PRICE_RULES).path(priceRuleId).path(DISCOUNT_CODES).queryParam(LIMIT_QUERY_PARAMETER, pageSize)
+		WebTarget webTarget = getWebTarget().path(PRICE_RULES).path(priceRuleId).path(DISCOUNT_CODES).queryParam(LIMIT_QUERY_PARAMETER, pageSize)
 				.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		final Response response = get(webTarget);
 		final ShopifyDiscountCodesRoot shopifyDiscountCodesRoot = response.readEntity(ShopifyDiscountCodesRoot.class);
@@ -1214,8 +1210,7 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyMarketingEvent> getMarketingEvents(final int pageSize, final String pageInfo) {
-		WebTarget webTarget = getWebTarget().path(VERSION_2020_10)
-				.path(MARKETING_EVENTS).queryParam(LIMIT_QUERY_PARAMETER, pageSize)
+		WebTarget webTarget = getWebTarget().path(MARKETING_EVENTS).queryParam(LIMIT_QUERY_PARAMETER, pageSize)
 				.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		final Response response = get(webTarget);
 		final ShopifyMarketingEventsRoot shopifyMarketingEventsRoot = response.readEntity(ShopifyMarketingEventsRoot.class);
@@ -1627,7 +1622,7 @@ public class ShopifySdk {
 	}
 
 	private WebTarget buildShopMetafieldsEndpoint() {
-		return getWebTarget().path(VERSION_2021_10).path(METAFIELDS);
+		return getWebTarget().path(METAFIELDS);
 	}
 
 	private WebTarget buildPriceRulesEndpoint() {
