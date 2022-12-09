@@ -69,15 +69,10 @@ public class ShopifyLineItem {
 	private PriceSet totalDiscountSet;
 	@XmlElement(name = "discount_allocations")
 	private List<DiscountAllocation> discountAllocations;
-	@XmlElement(name = "origin_location")
-	private ShopifyAddress originalLocation;
 	private List<ShopifyDuty> duties;
 	@XmlElement(name = "product_exists")
 	private boolean productExists;
-
 	private String key;
-	@XmlElement(name = "destination_location_id")
-	private String destinationLocationId;
 	@XmlElement(name = "origin_location_id")
 	private String originLocationId;
 	@XmlElement(name = "presentment_variant_title")

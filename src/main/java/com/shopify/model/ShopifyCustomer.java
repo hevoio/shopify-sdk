@@ -23,8 +23,6 @@ public class ShopifyCustomer {
 
 	private String id;
 	private String email;
-	@XmlElement(name = "accepts_marketing")
-	private boolean acceptsMarketing;
 	@XmlElement(name = "created_at")
 	@XmlJavaTypeAdapter(DateTimeAdapter.class)
 	private DateTime createdAt;
@@ -36,24 +34,13 @@ public class ShopifyCustomer {
 	@XmlElement(name = "last_name")
 	private String lastname;
 	private String phone;
-	@XmlElement(name = "orders_count")
-	private long ordersCount;
 	private String state;
-	@XmlElement(name = "total_spent")
-	private BigDecimal totalSpent;
 	private String note;
 	private Metafield metafield;
 	private List<CustomerAddress> addresses;
 	@XmlElement(name = "default_address")
 	private CustomerAddress defaultAddress;
-
-	@XmlElement(name = "accepts_marketing_updated_at")
-	@XmlJavaTypeAdapter(DateTimeAdapter.class)
-	private DateTime acceptsMarketingUpdatedAt;
-
 	private Currency currency;
-	@XmlElement(name = "marketing_opt_in_level")
-	private String marketingOptInLevel;
 	@XmlElement(name = "multipass_identifier")
 	private String multipassIdentifier;
 	private String tags;
@@ -63,45 +50,17 @@ public class ShopifyCustomer {
 	private List<String> taxExemptions;
 	@XmlElement(name = "verified_email")
 	private boolean verifiedEmail;
-	@XmlElement(name = "last_order_id")
-	private String lastOrderId;
-	@XmlElement(name = "last_order_name")
-	private String lastOrderName;
 	@XmlElement(name = "admin_graphql_api_id")
 	private String adminGraphqlApiId;
 
 	@XmlElement(name = "sms_marketing_consent")
 	private Map<String, Object> smsMarketingConsent;
-
-	public DateTime getAcceptsMarketingUpdatedAt() {
-		return acceptsMarketingUpdatedAt;
-	}
-	public void setAcceptsMarketingUpdatedAt(final DateTime acceptsMarketingUpdatedAt) {
-		this.acceptsMarketingUpdatedAt = acceptsMarketingUpdatedAt;
-	}
-
-	public String getLastOrderId() {
-		return lastOrderId;
-	}
-
-	public void setLastOrderId(String lastOrderId) {
-		this.lastOrderId = lastOrderId;
-	}
-
 	public String getTags() {
 		return tags;
 	}
 
 	public void setTags(String tags) {
 		this.tags = tags;
-	}
-
-	public String getMarketingOptInLevel() {
-		return marketingOptInLevel;
-	}
-
-	public void setMarketingOptInLevel(String marketingOptInLevel) {
-		this.marketingOptInLevel = marketingOptInLevel;
 	}
 
 	public boolean getVerifiedEmail() {
@@ -136,14 +95,6 @@ public class ShopifyCustomer {
 		this.multipassIdentifier = multipassIdentifier;
 	}
 
-	public String getLastOrderName() {
-		return lastOrderName;
-	}
-
-	public void setLastOrderName(String lastOrderName) {
-		this.lastOrderName = lastOrderName;
-	}
-
 	public Currency getCurrency() {
 		return currency;
 	}
@@ -174,14 +125,6 @@ public class ShopifyCustomer {
 
 	public void setDefaultAddress(CustomerAddress email) {
 		this.defaultAddress = defaultAddress;
-	}
-
-	public boolean isAcceptsMarketing() {
-		return acceptsMarketing;
-	}
-
-	public void setAcceptsMarketing(boolean acceptsMarketing) {
-		this.acceptsMarketing = acceptsMarketing;
 	}
 
 	public DateTime getCreatedAt() {
@@ -224,28 +167,12 @@ public class ShopifyCustomer {
 		this.phone = phone;
 	}
 
-	public long getOrdersCount() {
-		return ordersCount;
-	}
-
-	public void setOrdersCount(long ordersCount) {
-		this.ordersCount = ordersCount;
-	}
-
 	public String getState() {
 		return state;
 	}
 
 	public void setState(String state) {
 		this.state = state;
-	}
-
-	public BigDecimal getTotalSpent() {
-		return totalSpent;
-	}
-
-	public void setTotalSpent(BigDecimal totalSpent) {
-		this.totalSpent = totalSpent;
 	}
 
 	public String getNote() {

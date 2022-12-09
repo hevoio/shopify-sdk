@@ -36,7 +36,6 @@ public class ImageAltTextCreationRequest {
 			imageAltTextMetafield.setKey(KEY);
 			imageAltTextMetafield.setValue(imageAltText);
 			imageAltTextMetafield.setNamespace(NAMESPACE);
-			imageAltTextMetafield.setValueType(VALUE_TYPE.toString());
 			return this;
 		}
 

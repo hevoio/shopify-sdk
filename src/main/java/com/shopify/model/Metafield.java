@@ -20,8 +20,6 @@ public class Metafield {
 	private String id;
 	private String key;
 	private String value;
-	@XmlElement(name = "value_type")
-	private String valueType;
 	private String namespace;
 	@XmlElement(name = "owner_id")
 	private String ownerId;
@@ -60,14 +58,6 @@ public class Metafield {
 
 	public void setValue(String value) {
 		this.value = value;
-	}
-
-	public String getValueType() {
-		return valueType;
-	}
-
-	public void setValueType(String valueType) {
-		this.valueType = valueType;
 	}
 
 	public String getNamespace() {

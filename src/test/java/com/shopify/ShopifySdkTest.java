@@ -308,10 +308,8 @@ public class ShopifySdkTest {
 		shopifyCustomer.setLastname("Brown");
 		shopifyCustomer.setEmail("me@austincbrown.com");
 		shopifyCustomer.setNote("A cool dude");
-		shopifyCustomer.setOrdersCount(3);
 		shopifyCustomer.setState("New York");
 		shopifyCustomer.setPhone("7188675309");
-		shopifyCustomer.setTotalSpent(new BigDecimal(32.12));
 		return shopifyCustomer;
 	}
 
@@ -327,10 +325,8 @@ public class ShopifySdkTest {
 		assertEquals("Brown", actualCustomer.getLastname());
 		assertEquals("me@austincbrown.com", actualCustomer.getEmail());
 		assertEquals("A cool dude", actualCustomer.getNote());
-		assertEquals(3, actualCustomer.getOrdersCount());
 		assertEquals("New York", actualCustomer.getState());
 		assertEquals("7188675309", actualCustomer.getPhone());
-		assertEquals(new BigDecimal(32.12), actualCustomer.getTotalSpent());
 	}
 
 	private ShopifyTaxLine buildTaxLine(final BigDecimal price, final BigDecimal rate, final String title) {

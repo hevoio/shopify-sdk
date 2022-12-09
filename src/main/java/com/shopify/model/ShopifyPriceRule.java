@@ -45,8 +45,8 @@ public class ShopifyPriceRule {
     private boolean oncePerCustomer;
     @XmlElement(name = "prerequisite_customer_ids")
     private List<String> prerequisiteCustomerIds;
-    @XmlElement(name = "prerequisite_saved_search_ids")
-    private List<String> prerequisiteSavedSearchIds;
+    @XmlElement(name = "customer_segment_prerequisite_ids")
+    private List<String> customerSegmentPrerequisiteIds;
     @XmlElement(name = "prerequisite_quantity_range")
     private Object prerequisiteQuantityRange;
     @XmlElement(name = "prerequisite_shipping_price_range")
@@ -118,8 +118,8 @@ public class ShopifyPriceRule {
     public List<String> getPrerequisiteCustomerIds() {
         return prerequisiteCustomerIds;
     }
-    public List<String> getPrerequisiteSavedSearchIds() {
-        return prerequisiteSavedSearchIds;
+    public List<String> getCustomerSegmentPrerequisiteIds() {
+        return customerSegmentPrerequisiteIds;
     }
     public Object getPrerequisiteQuantityRange() {
         return prerequisiteQuantityRange;
@@ -202,8 +202,8 @@ public class ShopifyPriceRule {
     public void setPrerequisiteCustomerIds(final List<String> prerequisiteCustomerIds) {
         this.prerequisiteCustomerIds = prerequisiteCustomerIds;
     }
-    public void setPrerequisiteSavedSearchIds(final List<String> prerequisiteSavedSearchIds) {
-        this.prerequisiteSavedSearchIds = prerequisiteSavedSearchIds;
+    public void setCustomerSegmentPrerequisiteIds(final List<String> customerSegmentPrerequisiteIds) {
+        this.customerSegmentPrerequisiteIds = customerSegmentPrerequisiteIds;
     }
     public void setPrerequisiteQuantityRange(final Object prerequisiteQuantityRange) {
         this.prerequisiteQuantityRange = prerequisiteQuantityRange;

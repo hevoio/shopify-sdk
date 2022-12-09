@@ -1047,9 +1047,9 @@ public class ShopifySdk {
 		return count.getCount();
 	}
 
-	public ShopifyPage<ShopifyCheckout> getUpdatedAbandonedCheckouts(final DateTime minimumUpdatedAtDate,
-															final DateTime maximumUpdatedAtDate,
-															final int pageSize, final String pageInfo) {
+	public ShopifyPage<ShopifyAbandonedCheckout> getUpdatedAbandonedCheckouts(final DateTime minimumUpdatedAtDate,
+																			  final DateTime maximumUpdatedAtDate,
+																			  final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildAbandonedCheckoutsEndpoint()
 				.queryParam(LIMIT_QUERY_PARAMETER, pageSize)
 				.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
@@ -1311,9 +1311,10 @@ public class ShopifySdk {
 		return mapPagedResponse(shopifyCustomersRootResponse.getCustomers(), response);
 	}
 
-	private ShopifyPage<ShopifyCheckout> getAbandonedCheckouts(final Response response) {
-		final ShopifyCheckoutsRoot shopifyCheckoutsRoot = response.readEntity(ShopifyCheckoutsRoot.class);
-		return mapPagedResponse(shopifyCheckoutsRoot.getCheckouts(), response);
+	private ShopifyPage<ShopifyAbandonedCheckout> getAbandonedCheckouts(final Response response) {
+		final ShopifyAbandonedCheckoutsRoot shopifyAbandonedCheckoutsRoot = response.readEntity(
+				ShopifyAbandonedCheckoutsRoot.class);
+		return mapPagedResponse(shopifyAbandonedCheckoutsRoot.getCheckouts(), response);
 	}
 
 	private ShopifyPage<ShopifyDraftOrder> getDraftOrders(final Response response) {
@@ -1705,5 +1706,11 @@ public class ShopifySdk {
 
 	public ShopifyPage<ShopifyEvent> getDeletedPriceRules(DateTime fromDate, DateTime toDate, Integer pageSize, String pageInfo) {
 		return getDeletedEvents(fromDate, toDate, pageSize, pageInfo, PRICE_RULE);
+	}
+
+	public ShopifyFulfillmentOrders getFulfillmentOrders(String orderId) {
+		WebTarget webTarget = buildOrdersEndpoint().path(orderId).path("fulfillment_orders");
+		final Response response = get(webTarget);
+		return response.readEntity(ShopifyFulfillmentOrders.class);
 	}
 }

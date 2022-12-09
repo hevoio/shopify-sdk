@@ -58,7 +58,6 @@ public class ShopifyProductMetafieldCreationRequest {
 
 		@Override
 		public BuildStep withValueType(final MetafieldValueType valueType) {
-			this.request.setValueType(valueType.name());
 			return this;
 		}
 
