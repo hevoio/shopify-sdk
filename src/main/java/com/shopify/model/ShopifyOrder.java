@@ -159,8 +159,8 @@ public class ShopifyOrder {
 	private BigDecimal totalOutstanding;
 	@XmlElement(name = "total_shipping_price_set")
 	private PriceSet totalShippingPriceSet;
-
-
-
-
+	@XmlElement(name = "original_total_additional_fees_set")
+	private OriginalTotalAdditionalFeesSet originalTotalAdditionalFeesSet;
+	@XmlElement(name = "current_total_additional_fees_set")
+	private CurrentTotalAdditionalFeesSet currentTotalAdditionalFeesSet;
 }
