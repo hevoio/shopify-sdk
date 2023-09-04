@@ -83,8 +83,6 @@ public class ShopifyOrder {
 	private String browserIp;
 	@XmlElement(name = "order_number")
 	private String orderNumber;
-	@XmlElement(name = "processing_method")
-	private String processingMethod;
 	@XmlElement(name = "source_name")
 	private String sourceName;
 	@XmlElement(name = "fulfillment_status")

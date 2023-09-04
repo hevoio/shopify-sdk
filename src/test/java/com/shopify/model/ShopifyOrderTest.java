@@ -70,7 +70,6 @@ public class ShopifyOrderTest {
 		shopifyOrder.setOrderNumber(SOMEORDER_NUMBER);
 		shopifyOrder.setOrderStatusUrl(SOME_STATUS);
 		shopifyOrder.setProcessedAt(SOME_DATE);
-		shopifyOrder.setProcessingMethod(SOME_PROCESSING_METHOD);
 		shopifyOrder.setReferringSite(HTTP_REFERRED_SITE);
 		shopifyOrder.setTags(SOME_TAGS);
 		shopifyOrder.setTaxesIncluded(true);
@@ -108,7 +107,6 @@ public class ShopifyOrderTest {
 		assertEquals(SOME_STATUS, shopifyOrder.getOrderStatusUrl());
 		assertEquals(SOME_DATE, shopifyOrder.getProcessedAt());
 		assertEquals(HTTP_REFERRED_SITE, shopifyOrder.getReferringSite());
-		assertEquals(SOME_PROCESSING_METHOD, shopifyOrder.getProcessingMethod());
 		assertEquals(SOME_TAGS, shopifyOrder.getTags());
 		assertEquals(true, shopifyOrder.isTaxesIncluded());
 		assertEquals(SOME_TAX_LINES, shopifyOrder.getTaxLines());
