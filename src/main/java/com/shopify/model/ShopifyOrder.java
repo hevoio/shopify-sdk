@@ -161,4 +161,6 @@ public class ShopifyOrder {
 	private OriginalTotalAdditionalFeesSet originalTotalAdditionalFeesSet;
 	@XmlElement(name = "current_total_additional_fees_set")
 	private CurrentTotalAdditionalFeesSet currentTotalAdditionalFeesSet;
+	@XmlElement(name = "po_number")
+	private String poNumber;
 }

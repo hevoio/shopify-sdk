@@ -74,6 +74,8 @@ public class ShopifyDraftOrder {
 	private AppliedDiscountCode appliedDiscountCode;
 	@XmlElement(name = "admin_graphql_api_id")
 	private String adminGraphqlApiId;
+	@XmlElement(name = "po_number")
+	private String poNumber;
 
 	public String getId() {
 		return id;
@@ -298,4 +300,13 @@ public class ShopifyDraftOrder {
 	public void setAdminGraphqlApiId(String adminGraphqlApiId) {
 		this.adminGraphqlApiId = adminGraphqlApiId;
 	}
+
+	public String getPoNumber() {
+		return poNumber;
+	}
+
+	public void setPoNumber(String poNumber) {
+		this.poNumber = poNumber;
+	}
+
 }
