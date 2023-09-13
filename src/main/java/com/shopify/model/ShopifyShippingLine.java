@@ -49,8 +49,6 @@ public class ShopifyShippingLine {
 	@XmlElement(name = "custom_tax_lines")
 	private List<ShopifyTaxLine> customTaxLines;
 	private BigDecimal markup;
-	@XmlElement(name = "delivery_category")
-	private String deliveryCategory;
 	@XmlElement(name = "carrier_service_id")
 	private String carrierServiceId;
 	@XmlElement(name = "api_client_id")

@@ -83,8 +83,6 @@ public class ShopifyOrder {
 	private String browserIp;
 	@XmlElement(name = "order_number")
 	private String orderNumber;
-	@XmlElement(name = "processing_method")
-	private String processingMethod;
 	@XmlElement(name = "source_name")
 	private String sourceName;
 	@XmlElement(name = "fulfillment_status")
@@ -159,8 +157,10 @@ public class ShopifyOrder {
 	private BigDecimal totalOutstanding;
 	@XmlElement(name = "total_shipping_price_set")
 	private PriceSet totalShippingPriceSet;
-
-
-
-
+	@XmlElement(name = "original_total_additional_fees_set")
+	private OriginalTotalAdditionalFeesSet originalTotalAdditionalFeesSet;
+	@XmlElement(name = "current_total_additional_fees_set")
+	private CurrentTotalAdditionalFeesSet currentTotalAdditionalFeesSet;
+	@XmlElement(name = "po_number")
+	private String poNumber;
 }

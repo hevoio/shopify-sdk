@@ -23,4 +23,12 @@ public class PaymentDetails {
     private String creditCardNumber;
     @XmlElement(name = "credit_card_company")
     private String creditCardCompany;
+    @XmlElement(name = "credit_card_name")
+    private String creditCardName;
+    @XmlElement(name = "credit_card_wallet")
+    private String creditCardWallet;
+    @XmlElement(name = "credit_card_expiration_month")
+    private Integer creditCardExpirationMonth;
+    @XmlElement(name = "credit_card_expiration_year")
+    private Integer creditCardExpirationYear;
 }
