@@ -1709,7 +1709,7 @@ public class ShopifySdk {
 	}
 
 	public ShopifyFulfillmentOrders getFulfillmentOrders(String orderId) {
-		WebTarget webTarget = buildOrdersEndpoint().path(orderId).path("fulfillment_orders");
+		WebTarget webTarget = buildOrdersEndpoint().path(orderId).queryParam(LIMIT_QUERY_PARAMETER, 250).path("fulfillment_orders");
 		final Response response = get(webTarget);
 		return response.readEntity(ShopifyFulfillmentOrders.class);
 	}
