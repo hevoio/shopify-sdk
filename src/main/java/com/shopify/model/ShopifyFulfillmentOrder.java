@@ -37,4 +37,6 @@ public class ShopifyFulfillmentOrder {
     private ShopifyDeliveryMethod deliveryMethod;
     @XmlElement(name = "fulfill_by")
     private String fulfillBy;
+    @XmlElement(name = "fulfillment_holds")
+    private List<FulfillmentHolds> fulfillmentHolds;
 }
