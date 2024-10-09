@@ -33,4 +33,10 @@ public class ShopifyFulfillmentOrder {
     private ShopifyAddress assignedLocation;
     @XmlElement(name = "merchant_requests")
     private List<MerchantRequest> merchantRequests;
+    @XmlElement(name = "delivery_method")
+    private ShopifyDeliveryMethod deliveryMethod;
+    @XmlElement(name = "fulfill_by")
+    private String fulfillBy;
+    @XmlElement(name = "fulfillment_holds")
+    private List<FulfillmentHolds> fulfillmentHolds;
 }

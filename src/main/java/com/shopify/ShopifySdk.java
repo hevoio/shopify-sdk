@@ -1706,4 +1706,14 @@ public class ShopifySdk {
 	public ShopifyPage<ShopifyEvent> getDeletedPriceRules(DateTime fromDate, DateTime toDate, Integer pageSize, String pageInfo) {
 		return getDeletedEvents(fromDate, toDate, pageSize, pageInfo, PRICE_RULE);
 	}
+
+	public ShopifyFulfillmentOrders getFulfillmentOrders(String orderId, Integer pageSize) {
+		WebTarget webTarget = this.buildOrdersEndpoint().path(orderId).path("fulfillment_orders");
+		if (pageSize != null) {
+			webTarget.queryParam(LIMIT_QUERY_PARAMETER, pageSize);
+		}
+
+		return this.get(webTarget).readEntity(ShopifyFulfillmentOrders.class);
+	}
+
 }
