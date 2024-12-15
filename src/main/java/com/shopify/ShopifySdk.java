@@ -21,6 +21,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import java.net.URI;
@@ -433,8 +434,8 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyProduct> getUpdatedProducts(final DateTime minimumUpdatedAtDate,
-													  final DateTime maximumUpdatedAtDate,
-													  final int pageSize, final String pageInfo) {
+														  final DateTime maximumUpdatedAtDate,
+														  final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildProductsEndpoint().queryParam(LIMIT_QUERY_PARAMETER, pageSize).queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		if (Strings.isNullOrEmpty(pageInfo)) {
 			webTarget = webTarget.queryParam(UPDATED_AT_MIN_QUERY_PARAMETER, minimumUpdatedAtDate.toString())
@@ -480,8 +481,8 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyProduct> getUpdatedProductsWithFields(final DateTime minimumUpdatedAtDate,
-														  final DateTime maximumUpdatedAtDate,
-														  final int pageSize, final String pageInfo, List<String> fields) {
+																	final DateTime maximumUpdatedAtDate,
+																	final int pageSize, final String pageInfo, List<String> fields) {
 		WebTarget webTarget = buildProductsEndpoint().queryParam(LIMIT_QUERY_PARAMETER, pageSize).queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		if (Strings.isNullOrEmpty(pageInfo)) {
 			webTarget = webTarget.queryParam(UPDATED_AT_MIN_QUERY_PARAMETER, minimumUpdatedAtDate.toString())
@@ -546,8 +547,8 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyCustomCollection> getUpdatedCustomCollections(final DateTime minimumUpdatedAtDate,
-														  final DateTime maximumUpdatedAtDate,
-														  final int pageSize, final String pageInfo) {
+																			final DateTime maximumUpdatedAtDate,
+																			final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildCustomCollectionsEndpoint().queryParam(LIMIT_QUERY_PARAMETER, pageSize).queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		if (Strings.isNullOrEmpty(pageInfo)) {
 			webTarget = webTarget.queryParam(UPDATED_AT_MIN_QUERY_PARAMETER, minimumUpdatedAtDate.toString())
@@ -590,8 +591,8 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifySmartCollection> getUpdatedSmartCollections(final DateTime minimumUpdatedAtDate,
-																  final DateTime maximumUpdatedAtDate,
-																  final int pageSize, final String pageInfo) {
+																		  final DateTime maximumUpdatedAtDate,
+																		  final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildSmartCollectionsEndpoint().queryParam(LIMIT_QUERY_PARAMETER, pageSize).queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		if (Strings.isNullOrEmpty(pageInfo)) {
 			webTarget = webTarget.queryParam(UPDATED_AT_MIN_QUERY_PARAMETER, minimumUpdatedAtDate.toString())
@@ -854,7 +855,7 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyOrder> getUpdatedOrdersCreatedBefore(final DateTime minimumUpdatedAtDate,
-			final DateTime maximumUpdatedAtDate, final DateTime maximumCreatedAtDate, final int pageSize) {
+																   final DateTime maximumUpdatedAtDate, final DateTime maximumCreatedAtDate, final int pageSize) {
 		final Response response = get(buildOrdersEndpoint().queryParam(STATUS_QUERY_PARAMETER, ANY_STATUSES)
 				.queryParam(LIMIT_QUERY_PARAMETER, pageSize)
 				.queryParam(UPDATED_AT_MIN_QUERY_PARAMETER, minimumUpdatedAtDate.toString())
@@ -864,7 +865,7 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyOrder> getOrders(final DateTime mininumCreationDate, final DateTime maximumCreationDate,
-			final int pageSize) {
+											   final int pageSize) {
 		final Response response = get(buildOrdersEndpoint().queryParam(STATUS_QUERY_PARAMETER, ANY_STATUSES)
 				.queryParam(LIMIT_QUERY_PARAMETER, pageSize)
 				.queryParam(CREATED_AT_MIN_QUERY_PARAMETER, mininumCreationDate.toString())
@@ -873,12 +874,12 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyOrder> getOrders(final DateTime mininumCreationDate, final DateTime maximumCreationDate,
-			final String appId) {
+											   final String appId) {
 		return getOrders(mininumCreationDate, maximumCreationDate, appId, DEFAULT_REQUEST_LIMIT);
 	}
 
 	public ShopifyPage<ShopifyOrder> getOrders(final DateTime mininumCreationDate, final DateTime maximumCreationDate,
-			final String appId, final int pageSize) {
+											   final String appId, final int pageSize) {
 		final Response response = get(buildOrdersEndpoint().queryParam(STATUS_QUERY_PARAMETER, ANY_STATUSES)
 				.queryParam(LIMIT_QUERY_PARAMETER, pageSize)
 				.queryParam(CREATED_AT_MIN_QUERY_PARAMETER, mininumCreationDate.toString())
@@ -894,7 +895,7 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyOrder> getUpdatedOrders(final DateTime minimumUpdatedAtDate,
-																   final DateTime maximumUpdatedAtDate,
+													  final DateTime maximumUpdatedAtDate,
 													  final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildOrdersEndpoint().queryParam(LIMIT_QUERY_PARAMETER, pageSize).queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		if (Strings.isNullOrEmpty(pageInfo)) {
@@ -917,8 +918,8 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyTenderTransaction> getProcessedTenderTransactions(final DateTime minimumUpdatedAtDate,
-													  final DateTime maximumUpdatedAtDate,
-													  final int pageSize, final String pageInfo) {
+																				final DateTime maximumUpdatedAtDate,
+																				final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildTenderTransactionsEndpoint().queryParam(LIMIT_QUERY_PARAMETER, pageSize).queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		if (Strings.isNullOrEmpty(pageInfo)) {
 			webTarget = webTarget.queryParam(PROCESSED_AT_MIN_QUERY_PARAMETER, minimumUpdatedAtDate.toString())
@@ -1026,8 +1027,8 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyCustomer> getUpdatedCustomers(final DateTime minimumUpdatedAtDate,
-																				 final DateTime maximumUpdatedAtDate,
-																				 final int pageSize, final String pageInfo) {
+															final DateTime maximumUpdatedAtDate,
+															final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildCustomersEndpoint()
 				.queryParam(LIMIT_QUERY_PARAMETER, pageSize)
 				.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
@@ -1048,8 +1049,8 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyCheckout> getUpdatedAbandonedCheckouts(final DateTime minimumUpdatedAtDate,
-															final DateTime maximumUpdatedAtDate,
-															final int pageSize, final String pageInfo) {
+																	 final DateTime maximumUpdatedAtDate,
+																	 final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildAbandonedCheckoutsEndpoint()
 				.queryParam(LIMIT_QUERY_PARAMETER, pageSize)
 				.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
@@ -1070,8 +1071,8 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyDraftOrder> getUpdatedDraftOrders(final DateTime minimumUpdatedAtDate,
-																	 final DateTime maximumUpdatedAtDate,
-																	 final int pageSize, final String pageInfo) {
+																final DateTime maximumUpdatedAtDate,
+																final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildDraftOrdersEndpoint()
 				.queryParam(LIMIT_QUERY_PARAMETER, pageSize)
 				.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
@@ -1159,8 +1160,8 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<Metafield> getShopMetafields(final DateTime minimumUpdatedAtDate,
-											 final DateTime maximumUpdatedAtDate,
-											 final int pageSize, final String pageInfo) {
+													final DateTime maximumUpdatedAtDate,
+													final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildShopMetafieldsEndpoint().queryParam(LIMIT_QUERY_PARAMETER, pageSize).queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		if (Strings.isNullOrEmpty(pageInfo)) {
 			webTarget = webTarget.queryParam(UPDATED_AT_MIN_QUERY_PARAMETER, minimumUpdatedAtDate.toString())
@@ -1180,8 +1181,8 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyPriceRule> getPriceRules(final DateTime minimumUpdatedAtDate,
-													final DateTime maximumUpdatedAtDate,
-													final int pageSize, final String pageInfo) {
+													   final DateTime maximumUpdatedAtDate,
+													   final int pageSize, final String pageInfo) {
 		WebTarget webTarget = buildPriceRulesEndpoint().queryParam(LIMIT_QUERY_PARAMETER, pageSize).queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		if (Strings.isNullOrEmpty(pageInfo)) {
 			webTarget = webTarget.queryParam(UPDATED_AT_MIN_QUERY_PARAMETER, minimumUpdatedAtDate.toString())
@@ -1201,7 +1202,7 @@ public class ShopifySdk {
 	}
 
 	public ShopifyPage<ShopifyDiscountCode> getDiscountCodes(final String priceRuleId,
-													   final int pageSize, final String pageInfo) {
+															 final int pageSize, final String pageInfo) {
 		WebTarget webTarget = getWebTarget().path(PRICE_RULES).path(priceRuleId).path(DISCOUNT_CODES).queryParam(LIMIT_QUERY_PARAMETER, pageSize)
 				.queryParam(PAGE_INFO_QUERY_PARAMETER, pageInfo);
 		final Response response = get(webTarget);
@@ -1259,15 +1260,38 @@ public class ShopifySdk {
 		return shopifyCarrierServiceRoot.getCarrierServices();
 	}
 
-	public List<ShopifyLocation> getLocations() {
+	public ShopifyLocationResponse getLocations(String pageToken) {
 		final String locationsEndpoint = new StringBuilder().append(LOCATIONS).append(JSON).toString();
-		final Response response = get(getWebTarget().path(locationsEndpoint));
+		WebTarget webTarget = getWebTarget().path(locationsEndpoint);
+		if(!pageToken.isEmpty()) {
+			webTarget = webTarget.queryParam("page_info",pageToken);
+		}
+		final Response response = get(webTarget);
 		final ShopifyLocationsRoot shopifyLocationRootResponse = response.readEntity(ShopifyLocationsRoot.class);
-		return shopifyLocationRootResponse.getLocations();
+		String nextPageToken = null;
+
+		if(containsMoreData(response.getHeaders())) {
+			nextPageToken = extractNextPageLink((String)response.getHeaders().get("link").get(0));
+		}
+		ShopifyLocationResponse locationResponse = new ShopifyLocationResponse(shopifyLocationRootResponse.getLocations(), nextPageToken);
+		return locationResponse;
+	}
+
+	private boolean containsMoreData(MultivaluedMap<String,Object> responseHeaders) {
+		boolean containsLink = responseHeaders.containsKey("link");
+		return containsLink && isLinkToNextPage((String)responseHeaders.get("link").get(0));
+	}
+
+	private boolean isLinkToNextPage(String link) {
+		return link.split("rel=")[1].contains("next");
+	}
+
+	private String extractNextPageLink(String nextPageUrl) {
+		return nextPageUrl.split("page_info=")[1].split(">;")[0];
 	}
 
 	public ShopifyInventoryLevel updateInventoryLevel(final String inventoryItemId, final String locationId,
-			final long quantity) {
+													  final long quantity) {
 		final ShopifyInventoryLevel shopifyInventoryLevel = new ShopifyInventoryLevel();
 		shopifyInventoryLevel.setAvailable(quantity);
 		shopifyInventoryLevel.setLocationId(locationId);
@@ -1340,7 +1364,7 @@ public class ShopifySdk {
 	}
 
 	private ShopifyProduct updateProductImages(final ShopifyProductRequest shopifyProductRequest,
-			final ShopifyProduct shopifyProduct) {
+											   final ShopifyProduct shopifyProduct) {
 		setVariantImageIds(shopifyProductRequest, shopifyProduct);
 		final ShopifyProductRoot shopifyProductRootRequest = new ShopifyProductRoot();
 		shopifyProductRootRequest.setProduct(shopifyProduct);
@@ -1351,7 +1375,7 @@ public class ShopifySdk {
 	}
 
 	private void setVariantImageIds(final ShopifyProductRequest shopifyProductRequest,
-			final ShopifyProduct shopifyProduct) {
+									final ShopifyProduct shopifyProduct) {
 		shopifyProduct.getVariants().stream().forEach(variant -> {
 			final int variantPosition = variant.getPosition();
 			if (shopifyProductRequest.hasVariantImagePosition(variantPosition)) {
@@ -1617,6 +1641,7 @@ public class ShopifySdk {
 	private WebTarget buildInventoryLevelsEndpoint() {
 		return getWebTarget().path(INVENTORY_LEVELS);
 	}
+
 	private WebTarget buildInventoryItemsEndpoint() {
 		return getWebTarget().path(INVENTORY_ITEMS);
 	}
