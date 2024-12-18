@@ -17,6 +17,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
+import com.shopify.model.ShopifyLocationResponse;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.junit.After;
@@ -580,9 +581,9 @@ public class ShopifySdkDriver {
 	@Test
 	public void givenValidRequestWhenRetrievingLocationsThenReturnShopifyOrderRisks() {
 
-		final List<ShopifyLocation> actualLocations = shopifySdk.getLocations();
+		final ShopifyLocationResponse actualLocations = shopifySdk.getLocations("");
 
-		assertFalse(actualLocations.isEmpty());
+		assertFalse(actualLocations.getLocations().isEmpty());
 	}
 
 	@Test

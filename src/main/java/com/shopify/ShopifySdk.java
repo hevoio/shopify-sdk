@@ -21,6 +21,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import java.net.URI;
@@ -1259,11 +1260,34 @@ public class ShopifySdk {
 		return shopifyCarrierServiceRoot.getCarrierServices();
 	}
 
-	public List<ShopifyLocation> getLocations() {
+	public ShopifyLocationResponse getLocations(String pageToken) {
 		final String locationsEndpoint = new StringBuilder().append(LOCATIONS).append(JSON).toString();
-		final Response response = get(getWebTarget().path(locationsEndpoint));
+		WebTarget webTarget = getWebTarget().path(locationsEndpoint);
+		if(!pageToken.isEmpty()) {
+			webTarget = webTarget.queryParam("page_info",pageToken);
+		}
+		final Response response = get(webTarget);
 		final ShopifyLocationsRoot shopifyLocationRootResponse = response.readEntity(ShopifyLocationsRoot.class);
-		return shopifyLocationRootResponse.getLocations();
+		String nextPageToken = "";
+
+		if(containsMoreData(response.getHeaders())) {
+			nextPageToken = extractNextPageLink((String)response.getHeaders().get("link").get(0));
+		}
+		ShopifyLocationResponse locationResponse = new ShopifyLocationResponse(shopifyLocationRootResponse.getLocations(), nextPageToken);
+		return locationResponse;
+	}
+
+	private boolean containsMoreData(MultivaluedMap<String,Object> responseHeaders) {
+		boolean containsLink = responseHeaders.containsKey("link");
+		return containsLink && isLinkToNextPage((String)responseHeaders.get("link").get(0));
+	}
+
+	private boolean isLinkToNextPage(String link) {
+		return link.split("rel=")[1].contains("next");
+	}
+
+	private String extractNextPageLink(String nextPageUrl) {
+		return nextPageUrl.split("page_info=")[1].split(">;")[0];
 	}
 
 	public ShopifyInventoryLevel updateInventoryLevel(final String inventoryItemId, final String locationId,
