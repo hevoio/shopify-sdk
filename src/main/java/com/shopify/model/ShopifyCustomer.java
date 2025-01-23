@@ -23,8 +23,6 @@ public class ShopifyCustomer {
 
 	private String id;
 	private String email;
-	@XmlElement(name = "accepts_marketing")
-	private boolean acceptsMarketing;
 	@XmlElement(name = "created_at")
 	@XmlJavaTypeAdapter(DateTimeAdapter.class)
 	private DateTime createdAt;
@@ -47,13 +45,7 @@ public class ShopifyCustomer {
 	@XmlElement(name = "default_address")
 	private CustomerAddress defaultAddress;
 
-	@XmlElement(name = "accepts_marketing_updated_at")
-	@XmlJavaTypeAdapter(DateTimeAdapter.class)
-	private DateTime acceptsMarketingUpdatedAt;
-
 	private Currency currency;
-	@XmlElement(name = "marketing_opt_in_level")
-	private String marketingOptInLevel;
 	@XmlElement(name = "multipass_identifier")
 	private String multipassIdentifier;
 	private String tags;
@@ -73,12 +65,8 @@ public class ShopifyCustomer {
 	@XmlElement(name = "sms_marketing_consent")
 	private Map<String, Object> smsMarketingConsent;
 
-	public DateTime getAcceptsMarketingUpdatedAt() {
-		return acceptsMarketingUpdatedAt;
-	}
-	public void setAcceptsMarketingUpdatedAt(final DateTime acceptsMarketingUpdatedAt) {
-		this.acceptsMarketingUpdatedAt = acceptsMarketingUpdatedAt;
-	}
+	@XmlElement(name = "email_marketing_consent")
+	private EmailMarketingConsent emailMarketingConsent;
 
 	public String getLastOrderId() {
 		return lastOrderId;
@@ -94,14 +82,6 @@ public class ShopifyCustomer {
 
 	public void setTags(String tags) {
 		this.tags = tags;
-	}
-
-	public String getMarketingOptInLevel() {
-		return marketingOptInLevel;
-	}
-
-	public void setMarketingOptInLevel(String marketingOptInLevel) {
-		this.marketingOptInLevel = marketingOptInLevel;
 	}
 
 	public boolean getVerifiedEmail() {
@@ -174,14 +154,6 @@ public class ShopifyCustomer {
 
 	public void setDefaultAddress(CustomerAddress email) {
 		this.defaultAddress = defaultAddress;
-	}
-
-	public boolean isAcceptsMarketing() {
-		return acceptsMarketing;
-	}
-
-	public void setAcceptsMarketing(boolean acceptsMarketing) {
-		this.acceptsMarketing = acceptsMarketing;
 	}
 
 	public DateTime getCreatedAt() {
@@ -302,5 +274,13 @@ public class ShopifyCustomer {
 
 	public void setSmsMarketingConsent(Map<String, Object> smsMarketingConsent) {
 		this.smsMarketingConsent = smsMarketingConsent;
+	}
+
+	public EmailMarketingConsent getEmailMarketingConsent() {
+		return emailMarketingConsent;
+	}
+
+	public void setEmailMarketingConsent(EmailMarketingConsent emailMarketingConsent) {
+		this.emailMarketingConsent = emailMarketingConsent;
 	}
 }
