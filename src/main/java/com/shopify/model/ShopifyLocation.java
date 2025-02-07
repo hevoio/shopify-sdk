@@ -26,10 +26,6 @@ public class ShopifyLocation {
 	private String province;
 	private boolean active;
 	private boolean legacy;
-	@XmlElement(name = "localized_country_name")
-	private String localizedCountryName;
-	@XmlElement(name = "localized_province_name")
-	private String localizedProvinceName;
 
 	@XmlElement(name = "created_at")
 	@XmlJavaTypeAdapter(DateTimeAdapter.class)
@@ -175,22 +171,6 @@ public class ShopifyLocation {
 
 	public void setLegacy(final boolean legacy) {
 		this.legacy = legacy;
-	}
-
-	public String getLocalizedCountryName() {
-		return localizedCountryName;
-	}
-
-	public String getLocalizedProvinceName() {
-		return localizedProvinceName;
-	}
-
-	public void setLocalizedCountryName(final String localizedCountryName) {
-		this.localizedCountryName = localizedCountryName;
-	}
-
-	public void setLocalizedProvinceName(final String localizedProvinceName) {
-		this.localizedProvinceName = localizedProvinceName;
 	}
 
 	public String getAdminGraphqlApiId() {

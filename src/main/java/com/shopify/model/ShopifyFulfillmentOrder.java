@@ -39,4 +39,10 @@ public class ShopifyFulfillmentOrder {
     private String fulfillBy;
     @XmlElement(name = "fulfillment_holds")
     private List<FulfillmentHolds> fulfillmentHolds;
+    @XmlElement(name = "include_financial_summaries")
+    private boolean includeFinancialSummaries;
+    @XmlElement(name = "include_order_reference_fields")
+    private boolean includeOrderReferenceFields;
+    @XmlElement(name = "presented_name")
+    private String presentedName;
 }

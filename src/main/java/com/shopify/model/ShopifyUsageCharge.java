@@ -26,9 +26,6 @@ public class ShopifyUsageCharge {
     @XmlElement(name = "created_at")
     @XmlJavaTypeAdapter(DateTimeAdapter.class)
     DateTime createdAt;
-    @XmlElement(name = "billing_on")
-    @XmlJavaTypeAdapter(DateTimeAdapter.class)
-    DateTime billingOn;
     @XmlElement(name = "balance_used")
     BigDecimal balanceUsed;
     @XmlElement(name = "balance_remaining")

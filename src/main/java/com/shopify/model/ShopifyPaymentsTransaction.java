@@ -11,6 +11,7 @@ import org.joda.time.DateTime;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.List;
 
 @Getter
 @Setter
@@ -41,5 +42,8 @@ public class ShopifyPaymentsTransaction {
     @XmlElement(name = "processed_at")
     @XmlJavaTypeAdapter(DateTimeAdapter.class)
     DateTime processedAt;
-
+    @XmlElement(name = "adjustment_order_transactions")
+    private List<AdjustmentOrderTransaction> adjustmentOrderTransactions;
+    @XmlElement(name = "adjustment_reason")
+    private String adjustmentReason;
 }
