@@ -26,4 +26,16 @@ public class ShopifyDeliveryMethod {
     @XmlElement(name = "max_delivery_date_time")
     private String maxDeliveryDateTime;
 
+    @XmlElement(name = "additional_information")
+    private AdditionalInformation additionalInformation;
+
+    @XmlElement(name = "service_code")
+    private String serviceCode;
+
+    @XmlElement(name = "source_reference")
+    private String sourceReference;
+
+    @XmlElement(name = "branded_promise")
+    private BrandedPromise brandedPromise;
+
 }

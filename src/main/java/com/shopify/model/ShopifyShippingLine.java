@@ -63,6 +63,7 @@ public class ShopifyShippingLine {
 	private String deliveryExpectationType;
 	@XmlElement(name = "discount_allocations")
 	private List<DiscountAllocation> discountAllocations;
-
+	@XmlElement(name = "is_removed")
+	private boolean isRemoved;
 
 }

@@ -60,5 +60,6 @@ public class ShopifyTransaction {
 	private Boolean test;
 	@XmlElement(name = "user_id")
 	private String userId;
-
+	@XmlElement(name = "amount_rounding")
+	private BigDecimal amountRounding;
 }
