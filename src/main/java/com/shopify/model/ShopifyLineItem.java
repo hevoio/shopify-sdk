@@ -101,6 +101,8 @@ public class ShopifyLineItem {
 	private BigDecimal preTaxPrice;
 	@XmlElement(name = "pre_tax_price_set")
 	private PriceSet preTaxPriceSet;
+	@XmlElement(name = "current_quantity")
+	private long currentQuantity;
 
 
 	public static class ShopifyPropertyDeserializer extends JsonDeserializer<List<ShopifyProperty>> {
