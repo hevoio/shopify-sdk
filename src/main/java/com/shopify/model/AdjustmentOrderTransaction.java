@@ -21,4 +21,6 @@ public class AdjustmentOrderTransaction {
 
     @XmlElement(name = "order")
     private OrderDetails orderDetails;
+    String fee;
+    String net;
 }
