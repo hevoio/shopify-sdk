@@ -1399,8 +1399,33 @@ public class ShopifySdk {
 	private Response get(final WebTarget webTarget) {
 		final Callable<Response> responseCallable = () -> webTarget.request(MediaType.APPLICATION_JSON)
 				.header(ACCESS_TOKEN_HEADER, accessToken).get();
-		final Response response = invokeResponseCallable(responseCallable);
-		return handleResponse(response, Status.OK);
+
+		int maxRetries = 5;
+		int attempt = 0;
+		while (true) {
+			try {
+				final Response response = invokeResponseCallable(responseCallable);
+				return handleResponse(response, Status.OK);
+			} catch (ShopifyClientException e) {
+				if (e.getMessage().contains(RETRY_FAILED_MESSAGE) && attempt < maxRetries) {
+					long delay = (attempt + 1) * 2000L; // 2s, 4s, 6s, 8s, 10s
+					try {
+						LOGGER.info(
+								"Rate limit exceeded, retrying in {} ms (attempt {}/{})",
+								delay,
+								attempt + 1,
+								maxRetries);
+						Thread.sleep(delay);
+					} catch (InterruptedException ie) {
+						Thread.currentThread().interrupt();
+						throw new RuntimeException("Retry interrupted for shopify", ie);
+					}
+					attempt++;
+					continue;
+				}
+				throw e;
+			}
+		}
 	}
 
 	private Response delete(final WebTarget webTarget) {
