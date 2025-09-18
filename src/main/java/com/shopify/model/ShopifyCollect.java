@@ -25,7 +25,7 @@ public class ShopifyCollect {
     @XmlElement(name = "updated_at")
     @XmlJavaTypeAdapter(DateTimeAdapter.class)
     private DateTime updatedAt;
-    private int position;
+    private long position;
     @XmlElement(name = "sort_value")
     private String sortValue;
 
@@ -69,11 +69,11 @@ public class ShopifyCollect {
         this.collectionId = collectionId;
     }
 
-    private int getPosition() {
+    private long getPosition() {
         return position;
     }
 
-    private void setPosition(int position) {
+    private void setPosition(long position) {
         this.position = position;
     }
 
