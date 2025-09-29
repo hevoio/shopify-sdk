@@ -106,6 +106,19 @@ public class Shop {
 	@XmlElement(name = "weight_unit")
 	private String weightUnit;
 	private String zip;
+	@XmlElement(name = "county_taxes")
+	private Boolean countyTaxes;
+	@XmlElement(name = "primary_location_id")
+	private BigDecimal primaryLocationId;
+	@XmlElement(name = "transactional_sms_disabled")
+	private Boolean transactionalSmsDisabled;
+	@XmlElement(name = "marketing_sms_consent_enabled_at_checkout")
+	private Boolean marketingSmsConsentEnabledAtCheckout;
+	@XmlElement(name = "auto_configure_tax_inclusivity")
+	private Boolean autoConfigureTaxInclusivity;
+	@XmlElement(name = "finances")
+	private Boolean finances;
+
 
 
 	public String getId() {
@@ -425,4 +438,42 @@ public class Shop {
 	public void setZip(final String zip) {
 		this.zip = zip;
 	}
+	public Boolean getCountyTaxes() {
+		return countyTaxes;
+	}
+	public void setCountyTaxes(final Boolean countyTaxes) {
+		this.countyTaxes = countyTaxes;
+	}
+	public BigDecimal getPrimaryLocationId() {
+		return primaryLocationId;
+	}
+	public void setPrimaryLocationId(final BigDecimal primaryLocationId) {
+		this.primaryLocationId = primaryLocationId;
+	}
+	public Boolean getTransactionalSmsDisabled() {
+		return transactionalSmsDisabled;
+	}
+	public void setTransactionalSmsDisabled(final Boolean transactionalSmsDisabled) {
+		this.transactionalSmsDisabled = transactionalSmsDisabled;
+	}
+	public Boolean getMarketingSmsConsentEnabledAtCheckout() {
+		return marketingSmsConsentEnabledAtCheckout;
+	}
+	public void setMarketingSmsConsentEnabledAtCheckout(final Boolean marketingSmsConsentEnabledAtCheckout) {
+		this.marketingSmsConsentEnabledAtCheckout = marketingSmsConsentEnabledAtCheckout;
+	}
+	public Boolean getAutoConfigureTaxInclusivity() {
+		return autoConfigureTaxInclusivity;
+	}
+	public void setAutoConfigureTaxInclusivity(final Boolean autoConfigureTaxInclusivity) {
+		this.autoConfigureTaxInclusivity = autoConfigureTaxInclusivity;
+	}
+	public void setFinances(final Boolean finances) {
+		this.finances = finances;
+	}
+	public Boolean getFinances() {
+		return finances;
+	}
+
+
 }
