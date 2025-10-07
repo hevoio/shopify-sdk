@@ -57,6 +57,9 @@ public class ShopifyRecurringApplicationCharge {
 	private String decoratedReturnUrl;
 	private Boolean test;
 
+	@XmlElement(name = "currency")
+	private String currency;
+
 	public String getId() {
 		return id;
 	}
@@ -200,4 +203,12 @@ public class ShopifyRecurringApplicationCharge {
 	public void setDecoratedReturnUrl(String decoratedReturnUrl) {
 		this.decoratedReturnUrl = decoratedReturnUrl;
 	}
+
+	public String getCurrency() {
+		return currency;
+	}
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
 }

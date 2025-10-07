@@ -35,5 +35,10 @@ public class ShopifyUsageCharge {
     @XmlElement(name = "updated_at")
     @XmlJavaTypeAdapter(DateTimeAdapter.class)
     DateTime updatedAt;
+    @XmlElement(name = "currency")
+    String currency;
+    @XmlElement(name = "recurring_application_charge_id")
+    String recurringApplicationChargeId;
+
 
 }
